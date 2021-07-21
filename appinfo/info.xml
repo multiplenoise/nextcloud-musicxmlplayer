@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Robin Elfrink <robin@15augustus.nl>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>musicxmlplayer</id>
+    <name>MusicXML Player</name>
+    <summary>MusicXML player and visualiser</summary>
+    <description><![CDATA[Play MusicXML-files in your browser, using alphaTab.
+
+https://github.com/multiplenoise/nextcloud-musicxmlplayer
+https://www.alphatab.net/.]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="robin@15augustus.nl" homepage="https://github.com/robinelfrink">Robin Elfrink</author>
+	<namespace>MusicXMLPlayer</namespace>
+    <category>multimedia</category>
+	<bugs>https://github.com/multiplenoise/nextcloud-musicxmlplayer/issues</bugs>
+	<website>https://github.com/multiplenoise/nextcloud-musicxmlplayer</website>
+	<repository type="git">https://github.com/multiplenoise/nextcloud-musicxmlplayer.git</repository>
+    <dependencies>
+        <nextcloud min-version="25" max-version="25"/>
+    </dependencies>
+    <repair-steps>
+        <install>
+            <step>OCA\MusicXMLPlayer\Migration\RegisterMimeType</step>
+        </install>
+        <uninstall>
+            <step>OCA\MusicXMLPlayer\Migration\UnregisterMimeType</step>
+        </uninstall>
+    </repair-steps>
+</info>

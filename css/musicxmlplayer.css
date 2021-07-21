@@ -1,0 +1,215 @@
+/* Main wrapper, full screen (almost). */
+.mxl-wrapper, .mxl-loading {
+	position: fixed;
+	top: 50px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(255, 255, 255, 0.95);
+}
+
+.mxl-wrapper {
+	visibility: hidden;
+}
+
+.mxl-loading {
+	flex: 1 1 auto;
+	z-index: 4000;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(255, 255, 255, 0.95);
+}
+
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+   
+.mxl-spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 5em;
+	height: 5em;
+	margin-top: -2.5em;
+	margin-left: -2.5em;
+	border-radius: 50%;
+	border: 0.3em solid #ccc;
+	border-top-color: #000;
+	animation: spinner 1.2s linear infinite;
+}
+
+.mxl-content {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: row;
+	min-height: 0;
+}
+
+.mxl-icon, .mxl-icon-small {
+	font-size: 2em;
+	padding: 0.25em;
+	display: inline-block;
+	cursor: pointer;
+	z-index: 3000;
+}
+
+.mxl-icon-small {
+	font-size: 1.5em;
+}
+
+.mxl-close-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff;
+	border-radius: 0.5em;
+}
+
+.mxl-settings-button {
+	position: absolute;
+	top: 2em;
+	left: 0;
+	background: #fff;
+	border-radius: 0.5em;
+}
+
+#mxl-settings-toggle {
+	display: none;
+}
+
+.mxl-settings {
+	position: absolute;
+	top: 8em;
+	left: -100%;
+	transition: 0.5s;
+	background: #f7f7f7;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-left: none;
+	z-index: 3000;
+}
+
+#mxl-settings-toggle:checked ~ .mxl-settings {
+	left: 0;
+	transition: 0.5s;
+}
+
+.mxl-viewport {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	padding-right: 20px;
+	padding-left: 2em;
+}
+
+.mxl-controls {
+	padding: 4px;
+	display: flex;
+	justify-content: space-between;
+	background: #436d9d;
+	color: #fff;
+}
+
+.mxl-controls > div {
+	display: flex;
+}
+
+.mxl-controls-left {
+	justify-content: flex-start;
+}
+
+.mxl-controls-right {
+	justify-content: flex-end;
+}
+
+.mxl-controls-center {
+	min-width: 0;
+}
+
+.mxl-controls > div > * {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	margin: 0 3px;
+}
+
+.mxl-controls .mxl-icon {
+	font-size: 1.5em;
+	padding: 0.25em;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+}
+
+.mxl-controls .mxl-player-position {
+	white-space: nowrap;
+}
+
+.mxl-controls .mxl-songinfo {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.mxl-controls datalist {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: #000;
+}
+
+.mxl-controls datalist option {
+	writing-mode: vertical-lr;
+	font-size: 80%;
+}
+
+.mxl-controls .mxl-speed,
+.mxl-controls .mxl-zoom {
+	position: relative;
+}
+
+div.mxl-speed-wrapper div.mxl-speed-content,
+div.mxl-zoom-wrapper div.mxl-zoom-content {
+	display: none;
+	position: absolute;
+	bottom: 100%;
+	transform: rotate(270deg);
+	transform-origin: bottom left;
+	background: #f7f7f7;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	z-index: 3000;
+}
+
+.mxl-controls #mxl-speed-toggle:checked ~ div.mxl-speed-wrapper div.mxl-speed-content {
+	display: initial;
+}
+
+.mxl-controls #mxl-zoom-toggle:checked ~ div.mxl-zoom-wrapper div.mxl-zoom-content {
+	display: initial;
+}
+
+.mxl-controls input[type='checkbox'] {
+	display: none;
+}
+
+.at-cursor-bar {
+	background: rgba(255, 242, 0, 0.25);
+}
+
+.at-selection div {
+	background: rgba(64, 64, 255, 0.1);
+}
+
+.at-cursor-beat {
+	background: rgba(64, 64, 255, 0.75);
+	width: 3px;
+}
+
+.at-highlight * {
+	fill: #0078ff;
+	stroke: #0078ff;
+}

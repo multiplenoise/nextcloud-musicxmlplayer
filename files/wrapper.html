@@ -1,0 +1,106 @@
+<div class="mxl-loading">
+    <div class="mxl-spinner"></div>
+</div>
+<div class="mxl-wrapper">
+    <div class="mxl-content">
+        <a class="mxl-close-button mxl-icon bi bi-power" title="Close player"></a>
+        <label for="mxl-settings-toggle" class="mxl-settings-button mxl-icon bi bi-gear" title="Track settings"></label>
+        <input type="checkbox" id="mxl-settings-toggle"/>
+        <div class="mxl-settings">
+            <table>
+                <tbody class="mxl-track-list">
+                    <tr class="mxl-track">
+                        <td></td>
+                        <td class="mxl-track-details">
+                            <a class="mxl-icon mxl-reset bi bi-arrow-counterclockwise"></a>
+                        </td>
+                        <td class="mxl-track-details" colspan="2">
+                            Reset to default values
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <datalist id="datalist-volume">
+                <option value="0" label="0"></option>
+                <option value="2"></option>
+                <option value="4" label="4"></option>
+                <option value="6"></option>
+                <option value="8" label="8"></option>
+                <option value="10"></option>
+                <option value="12" label="12"></option>
+                <option value="14"></option>
+                <option value="16" label="16"></option>
+            </datalist>
+        </div>
+        <div class="mxl-viewport">
+            <div class="mxl-main"></div>
+        </div>
+    </div>
+    <div class="mxl-controls">
+        <div class="mxl-controls-left">
+            <div>
+                <a class="mxl-icon mxl-player-play bi bi-play-circle disabled" title="Play score"></a>
+                <div class="mxl-player-position"></div>
+            </div>
+        </div>
+        <div class="mxl-controls-center">
+            <div class="mxl-songinfo"></div>
+            <div class="mxl-progress"></div>
+        </div>
+        <div class="mxl-controls-right">
+            <div class="mxl-speed">
+                <label for="mxl-speed-toggle" class="mxl-icon bi bi-speedometer" title="Speed"></label>
+                <input type="checkbox" id="mxl-speed-toggle" />
+                <div class="mxl-speed-wrapper">
+                    <div class="mxl-speed-content">
+                        <input class="mxl-speed-range" type="range" min="20" max="140" value="100" step="10" list="datalist-speed" />
+                        <datalist id="datalist-speed">
+                            <option value="20" label="20%"></option>
+                            <option value="40"></option>
+                            <option value="60" label="60%"></option>
+                            <option value="80"></option>
+                            <option value="100" label="100%"></option>
+                            <option value="120"></option>
+                            <option value="140" label="140%"></option>
+                        </datalist>    
+                    </div>
+                </div>
+            </div>
+            <div class="mxl-zoom">
+                <label for="mxl-zoom-toggle" class="mxl-icon bi bi-search" title="Zoom"></label>
+                <input type="checkbox" id="mxl-zoom-toggle" />
+                <div class="mxl-zoom-wrapper">
+                    <div class="mxl-zoom-content">
+                        <input class="mxl-zoom-range" type="range" min="20" max="180" value="100" step="20" list="datalist-zoom" />
+                        <datalist id="datalist-zoom">
+                            <option value="20" label="20%"></option>
+                            <option value="40"></option>
+                            <option value="60" label="60%"></option>
+                            <option value="80"></option>
+                            <option value="100" label="100%"></option>
+                            <option value="120"></option>
+                            <option value="140" label="140%"></option>
+                            <option value="160"></option>
+                            <option value="180" label="180%"></option>
+                        </datalist>    
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+    <template id="mxl-track-template">
+        <tr class="mxl-track">
+            <td class="mxl-track-details mxl-track-name"></td>
+            <td>
+                <a class="mxl-icon mxl-track-mute bi bi-volume-up"></a>
+            </td>
+            <td class="mxl-track-details mxl-track-settings">
+                <a class="mxl-icon-small mxl-track-hide bi bi-eye"></a>
+            </td>
+            <td class="mxl-track-details mxl-track-settings">
+                <input class="mxl-track-volume" type="range" min="0" max="16" value="12" />
+                <output class="volume-popup"></output>
+            </td>
+        </tr>
+    </template>
+</div>
