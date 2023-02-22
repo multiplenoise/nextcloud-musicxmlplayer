@@ -1,0 +1,9 @@
+{
+	"name": "nextcloud/musicxmlplayer",
+	"require-dev": {
+		"nextcloud/coding-standard": "^1.0.0"
+	},
+	"scripts": {
+		"lint": "find appinfo lib -name \\*.php -print0 | xargs -0 -n1 php -l"
+	}
+}
