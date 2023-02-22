@@ -1,0 +1,49 @@
+name: lint
+
+on: pull_request
+
+jobs:
+
+  tag:
+    name: Calculate next version tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Bump version and tag
+        uses: mathieudutour/github-tag-action@v6.1
+        id: tag
+        with:
+          dry_run: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  js-css-lint:
+    name: Lint JavaScript and CSS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: NODE_ENV=development npm install --no-package-lock
+      - name: Run ESLint
+        run: ./node_modules/.bin/eslint js/musicxmlplayer.js
+      - name: Run Stylelint
+        run: ./node_modules/.bin/stylelint css/musicxmlplayer.css
+
+  php-lint:
+    name: Lint PHP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+      - name: Run Composer lint
+        run: composer run lint

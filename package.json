@@ -1,0 +1,15 @@
+{
+	"name": "@nextcloud/muscxmlplayer",
+    "scripts": {
+        "lint": "eslint js/musicxmlplayer.js",
+        "stylelint": "stylelint css/musicxmlplayer.css"
+    },
+    "engines": {
+        "node": "^18.0.0",
+        "npm": "^9.0.0"
+    },
+    "devDependencies": {
+        "@nextcloud/eslint-config": "^8.2.1",
+        "@nextcloud/stylelint-config": "^2.3.0"
+    }
+}
