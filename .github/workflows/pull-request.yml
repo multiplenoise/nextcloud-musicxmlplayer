@@ -15,6 +15,7 @@ jobs:
         id: tag
         with:
           dry_run: true
+          default_bump: false
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   js-css-lint:
