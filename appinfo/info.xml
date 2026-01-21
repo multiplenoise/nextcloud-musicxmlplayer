@@ -21,7 +21,7 @@ https://www.alphatab.net/.]]></description>
 	<website>https://github.com/multiplenoise/nextcloud-musicxmlplayer</website>
 	<repository type="git">https://github.com/multiplenoise/nextcloud-musicxmlplayer.git</repository>
     <dependencies>
-        <nextcloud min-version="25" max-version="27"/>
+        <nextcloud min-version="25" max-version="38"/>
     </dependencies>
     <repair-steps>
         <install>

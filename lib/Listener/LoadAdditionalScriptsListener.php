@@ -15,7 +15,7 @@ class LoadAdditionalScriptsListener implements IEventListener {
             // Unrelated
             return;
 		}
-		\OCP\Util::addScript('musicxmlplayer', 'alphaTab-1.3.0-alpha.762.min');
+		\OCP\Util::addScript('musicxmlplayer', 'alphaTab-1.8.0.min');
 		\OCP\Util::addScript('musicxmlplayer', 'musicxmlplayer');
 		\OCP\Util::addStyle('musicxmlplayer', 'musicxmlplayer');
 		\OCP\Util::addStyle('musicxmlplayer', 'bootstrap-icons.min');
